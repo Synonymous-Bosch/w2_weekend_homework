@@ -6,6 +6,7 @@ class Room:
         self.songs = songs
         self.entry_fee = 5.00
 
+
     def check_in(self, guest):
         if self.check_room_capacity() > len(self.guests) and self.guest_can_afford_entry_fee(guest) == True:
             self.guests.append(guest)
@@ -23,8 +24,8 @@ class Room:
     def check_room_capacity(self):
         return self.capacity
     
-    def pay_entry_fee(self, guest):
-        guest.money -= self.entry_fee
+
+
 
     def guest_can_afford_entry_fee(self, guest):
         if guest.money >= self.entry_fee:
@@ -37,3 +38,8 @@ class Room:
             for song in self.songs:
                 if guest.favourite_song == song.title:
                     return f'{guest.name} shouts "Wahoo!"'
+                
+
+
+
+    

@@ -16,8 +16,12 @@ class TestRoom(unittest.TestCase):
         self.song3 = Song("Mushroom Men", "Les Claypool")
         songs = [self.song1]
         guests = [self.guest1]
+        drinks = []
+        foods = []
+        self.bar = Bar(drinks, foods)
         self.room1 = Room(1, 6, guests, songs)
         self.room2 = Room(2, 1, guests, songs)
+ 
 
     def test_room_has_number(self):
         self.assertEqual(1, self.room1.number)
@@ -49,9 +53,7 @@ class TestRoom(unittest.TestCase):
         self.assertEqual("Sorry. Room's at capacity", result)
         self.assertEqual(1, len(self.room2.guests))
 
-    def test_pay_entry_fee(self):
-        self.room1.pay_entry_fee(self.guest2)
-        self.assertEqual(15.00, self.guest2.money)
+
 
     def test_guest_can_not_afford_entry_fee(self):
         result = self.room1.guest_can_afford_entry_fee(self.guest3)
@@ -69,3 +71,7 @@ class TestRoom(unittest.TestCase):
     def test_favourite_song_on_playlist(self):
         result = self.room1.favourite_song_on_playlist()
         self.assertEqual('Mario Mario shouts "Wahoo!"', result)
+
+
+
+
